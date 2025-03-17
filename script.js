@@ -1,15 +1,15 @@
 // Configuración de Firebase
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
-import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+  import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/11.4.0//firebase-firestore.js";
 
-const firebaseConfig = {
-  apiKey: "AIzaSyB1Q_025Jwq_eoeGOEapOU3_2z18lWz59c",
-  authDomain: "datos5-a96cc.firebaseapp.com",
-  projectId: "datos5-a96cc",
-  storageBucket: "datos5-a96cc.firebasestorage.app",
-  messagingSenderId: "756946488969",
-  appId: "1:756946488969:web:865590c33633144a528058"
-};
+  const firebaseConfig = {
+    apiKey: "AIzaSyB1Q_025Jwq_eoeGOEapOU3_2z18lWz59c",
+    authDomain: "datos5-a96cc.firebaseapp.com",
+    projectId: "datos5-a96cc",
+    storageBucket: "datos5-a96cc.firebasestorage.app",
+    messagingSenderId: "756946488969",
+    appId: "1:756946488969:web:865590c33633144a528058"
+  };
 
 // Inicializar Firebase
 export const app = initializeApp(firebaseConfig);
