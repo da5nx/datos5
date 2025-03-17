@@ -6,7 +6,7 @@
     apiKey: "AIzaSyB1Q_025Jwq_eoeGOEapOU3_2z18lWz59c",
     authDomain: "datos5-a96cc.firebaseapp.com",
     projectId: "datos5-a96cc",
-    storageBucket: "datos5-a96cc.firebasestorage.app",
+    storageBucket: "datos5-a96cc.appspot.com"
     messagingSenderId: "756946488969",
     appId: "1:756946488969:web:865590c33633144a528058"
   };
