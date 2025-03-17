@@ -1,3 +1,4 @@
+<script type="module">
 // Configuración de Firebase
   import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
   import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/11.4.0//firebase-firestore.js";
@@ -30,3 +31,4 @@ document.getElementById('dataForm').addEventListener('submit', async function (e
         document.getElementById('message').textContent = 'Error al guardar los datos.';
     }
 });
+</script>
