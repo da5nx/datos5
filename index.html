@@ -1,26 +1,73 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Datos5</title>
-    <script src="https://www.gstatic.com/firebasejs/11.4.0//firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/11.4.0//firebase-firestore.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Datos5</title>
+
+  <!-- Incluye los SDKs de Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/11.5.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/11.5.0/firebase-firestore.js"></script>
 </head>
 <body>
-    <h1>Introduce tus datos</h1>
-    <form id="dataForm">
-        <label for="name">Nombre:</label>
-        <input type="text" id="name" name="name" required>
-        <br>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-        <br>
-        <button type="submit">Enviar</button>
-    </form>
+  <h1>Introduce tus datos</h1>
+  <form id="dataForm">
+    <label for="name">Nombre:</label>
+    <input type="text" id="name" name="name" required>
+    <br>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    <br>
+    <button type="submit">Enviar</button>
+  </form>
 
-    <p id="message"></p>
+  <p id="message"></p>
 
-    <script src="script.js"></script>
+  <script>
+    // Configuración de Firebase
+    const firebaseConfig = {
+      apiKey: "AIzaSyBWP_ZOp5EDRvFv8lD-SieJvuRdHeX6w_gU",
+      authDomain: "magic-38423.firebaseapp.com",
+      projectId: "magic-38423",
+      storageBucket: "magic-38423.appspot.com",
+      messagingSenderId: "21352354429",
+      appId: "1:21352354429:web:d308343195f19f7c230264"
+    };
+
+    // Inicializa Firebase
+    const app = firebase.initializeApp(firebaseConfig);
+
+    // Obtén una referencia a Firestore
+    const db = firebase.firestore(app);
+
+    // Manejo del formulario
+    const form = document.getElementById('dataForm');
+    const messageElement = document.getElementById('message');
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault(); // Evita que el formulario se envíe por defecto
+
+      // Obtiene los valores del formulario
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+
+      try {
+        // Crea un documento en Firestore con los datos del formulario
+        const docRef = await db.collection('usuarios').add({
+          nombre: name,
+          email: email,
+          createdAt: new Date().toISOString()
+        });
+
+        // Muestra un mensaje de éxito
+        messageElement.textContent = `Datos enviados correctamente. ID del documento: ${docRef.id}`;
+        messageElement.style.color = 'green';
+      } catch (error) {
+        // Maneja errores
+        messageElement.textContent = `Error al enviar los datos: ${error.message}`;
+        messageElement.style.color = 'red';
+      }
+    });
+  </script>
 </body>
 </html>
