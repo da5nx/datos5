@@ -12,11 +12,11 @@
 <body>
   <h1>Introduce tus datos</h1>
   <form id="dataForm">
-    <label for="name">Nombre:</label>
-    <input type="text" id="name" name="name" required>
+    <label for="contraseña">contraseña:</label>
+    <input type="text" id="contraseña" contraseña="contraseña" required>
     <br>
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required>
+    <label for="usuario">Email:</label>
+    <input type="usuario" id="usuario" usuario="usuario" required>
     <br>
     <button type="submit">Enviar</button>
   </form>
@@ -54,8 +54,8 @@
       try {
         // Crea un documento en Firestore con los datos del formulario
         const docRef = await db.collection('usuarios').add({
-          nombre: name,
-          email: email,
+          contraseña: contraseña,
+          usuario: usuario,
           createdAt: new Date().toISOString()
         });
 
